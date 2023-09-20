@@ -8,6 +8,7 @@ import { ChangeEvent, useState } from 'react';
 import {Address, parseEther} from 'viem';
 import useNetworkStore from '@/stores/network';
 import CopyableText from '@/components/CopyableText';
+import Head from 'next/head';
 
 const inter = Dosis({ subsets: ['latin'] })
 const fira = Fira_Mono({ weight: "400", subsets: ['latin']});
@@ -89,6 +90,9 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center gap-4 bg-slate-100 py-8 px-16 ${inter.className}`}
     >
+      <Head>
+        <title>Dummy Tokens — EVM compatible dummy ERC20 token</title>
+      </Head>
       <div>
         <h1 className='font-bold text-3xl'>Dummy Tokens</h1>
         <p>Your Web3 development needs</p>
