@@ -7,6 +7,7 @@ import sepolia from '@/public/ethereum-eth-logo.svg';
 import bsc from '@/public/bnb-bnb-logo.svg';
 import linea from '@/public/linea.svg';
 import base from '@/public/base.svg';
+import scroll from '@/public/scroll.png';
 import { useNetwork } from 'wagmi';
 import useNetworkStore from '@/stores/network';
 
@@ -18,7 +19,8 @@ export type NetworkType =
   | 'polygon'
   | 'avalanche'
   | 'bsc'
-  | 'base';
+  | 'base'
+  | 'scroll';
 
 const ICON: { [key: string]: any } = {
   sepolia: sepolia,
@@ -29,6 +31,7 @@ const ICON: { [key: string]: any } = {
   avalanche: avalanche,
   bsc: bsc,
   base: base,
+  scroll: scroll,
 };
 
 interface Props {

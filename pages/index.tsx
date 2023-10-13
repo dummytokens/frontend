@@ -32,6 +32,7 @@ const CHAIN_NETWORK_MAP: { [key: number]: NetworkType } = {
   43113: 'avalanche',
   97: 'bsc',
   84531: 'base',
+  534351: 'scroll'
 };
 const NETWORK_CHAIN_MAP: { [key: string]: number } = {
   sepolia: 11155111,
@@ -42,6 +43,7 @@ const NETWORK_CHAIN_MAP: { [key: string]: number } = {
   avalanche: 43113,
   bsc: 97,
   base: 84531,
+  scroll: 534351
 };
 
 export default function Home() {
@@ -103,7 +105,7 @@ export default function Home() {
       <Head>
         <title>Dummy Tokens — EVM compatible dummy ERC20 token</title>
       </Head>
-      <div className="bg-slate-400 w-1/5 h-screen p-8 flex flex-col gap-4">
+      <div className="bg-slate-300 w-1/5 h-screen p-8 flex flex-col gap-4">
         <Image src={logo} alt="logo" />
         <ConnectKitButton.Custom>
           {({
@@ -137,17 +139,17 @@ export default function Home() {
         </ConnectKitButton.Custom>
         <div className="flex flex-col">
           <h1 className="text-xl font-bold">Dummy Tokens</h1>
-          <Link className="hover:bg-slate-300/50 px-2 py-1 rounded-md" href="/">
+          <Link className="hover:bg-slate-400/50 px-2 py-1 rounded-md" href="/">
             ERC20
           </Link>
           <Link
-            className="hover:bg-slate-300/50 px-2 py-1 rounded-md"
+            className="hover:bg-slate-400/50 px-2 py-1 rounded-md"
             href="/erc721"
           >
             ERC721
           </Link>
           <Link
-            className="hover:bg-slate-300/50 px-2 py-1 rounded-md"
+            className="hover:bg-slate-400/50 px-2 py-1 rounded-md"
             href="/erc1155"
           >
             ERC1155
@@ -170,6 +172,7 @@ export default function Home() {
               <Network network='polygon'/> */}
             <Network network="bsc" />
             <Network network="base" />
+            <Network network="scroll" />
           </div>
           <div className="bg-white rounded-xl p-4 shadow-lg flex flex-row gap-2 justify-between">
             <select
@@ -185,6 +188,7 @@ export default function Home() {
                   <option value="avalanche">Avalanche Fuji</option> */}
               <option value="bsc">BSC Testnet</option>
               <option value="base">Base Goerli</option>
+              <option value="scroll">Scroll Sepolia</option>
             </select>
           </div>
         </div>
