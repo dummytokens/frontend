@@ -8,7 +8,7 @@ export interface NetworkStore {
 
 const useNetworkStore = create<NetworkStore>((set, get) => ({
   selected: 'sepolia',
-  select: (selected) => set({selected}),
+  select: (selected) => set({ selected }),
 }));
 
 export default useNetworkStore;
