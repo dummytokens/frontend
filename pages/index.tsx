@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Dosis, Fira_Mono } from 'next/font/google';
 import { Icon } from '@iconify/react';
-import logo from '@/public/logo.svg';
 import { ConnectKitButton } from 'connectkit';
 import Network, { NetworkType } from '@/components/Network';
 import {
@@ -17,8 +16,8 @@ import useNetworkStore from '@/stores/network';
 import CopyableText from '@/components/CopyableText';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Sidebar } from '@/components/Sidebar';
 
-const inter = Dosis({ subsets: ['latin'] });
 const fira = Fira_Mono({ weight: '400', subsets: ['latin'] });
 
 const ERC20_ADDRESS = '0xE08c9023743368D227b158a682827C2F3cd403EE';
@@ -99,64 +98,12 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`flex min-h-screen flex-row items-center gap-4 bg-slate-100 ${inter.className}`}
-    >
+    <main className='w-full'>
       <Head>
         <title>Dummy Tokens — EVM compatible dummy ERC20 token</title>
       </Head>
-      <div className="bg-slate-300 w-1/5 h-screen p-8 flex flex-col gap-4">
-        <Image src={logo} alt="logo" />
-        <ConnectKitButton.Custom>
-          {({
-            isConnected,
-            isConnecting,
-            show,
-            hide,
-            address,
-            ensName,
-            truncatedAddress,
-            chain,
-          }) => {
-            if (isConnected)
-              return (
-                <button
-                  onClick={show}
-                  className="hover:bg-slate-600 transition-all rounded-lg px-4 py-2 bg-slate-500 text-white w-full"
-                >
-                  {ensName || truncatedAddress}
-                </button>
-              );
-            return (
-              <button
-                onClick={show}
-                className="hover:bg-slate-600 transition-all rounded-lg px-4 py-2 bg-slate-500 text-white w-full"
-              >
-                Connect
-              </button>
-            );
-          }}
-        </ConnectKitButton.Custom>
-        <div className="flex flex-col">
-          <h1 className="text-xl font-bold">Dummy Tokens</h1>
-          <Link className="hover:bg-slate-400/50 px-2 py-1 rounded-md" href="/">
-            ERC20
-          </Link>
-          <Link
-            className="hover:bg-slate-400/50 px-2 py-1 rounded-md"
-            href="/erc721"
-          >
-            ERC721
-          </Link>
-          <Link
-            className="hover:bg-slate-400/50 px-2 py-1 rounded-md"
-            href="/erc1155"
-          >
-            ERC1155
-          </Link>
-        </div>
-      </div>
-      <div className="w-4/5 p-16 flex flex-col gap-4">
+      
+      <div className="p-16 flex flex-col gap-4 w-full">
         <div>
           <h2 className="text-2xl">Dummy Tokens</h2>
           <h1 className="text-4xl font-bold">ERC20</h1>

@@ -1,6 +1,8 @@
+import { Sidebar } from '@/components/Sidebar';
 import '@/styles/globals.css';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
 import type { AppProps } from 'next/app';
+import { Dosis } from 'next/font/google';
 import { WagmiConfig, createConfig, sepolia } from 'wagmi';
 
 const config = createConfig(
@@ -21,11 +23,17 @@ const config = createConfig(
   })
 );
 
+const inter = Dosis({ subsets: ['latin'] });
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={config}>
       <ConnectKitProvider options={{ enforceSupportedChains: false }}>
-        <Component {...pageProps} />
+        <div className={`flex min-h-screen flex-row items-center gap-4 bg-slate-100 ${inter.className}`}>
+          <Sidebar/>
+          <Component {...pageProps} />
+
+        </div>
       </ConnectKitProvider>
     </WagmiConfig>
   );
